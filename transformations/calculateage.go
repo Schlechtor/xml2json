@@ -20,14 +20,14 @@ func calculateAge(data map[string]interface{}, param any) interface{} {
 		if err != nil {
 			return nil
 		}
-	
+
 		currentDate := time.Now()
 		age := currentDate.Year() - birthDate.Year()
-	
+
 		if currentDate.YearDay() < birthDate.YearDay() {
 			age--
 		}
-	
+
 		return age
 	}
 	return nil
