@@ -15,60 +15,14 @@ If you have nix you can just run the flake.
 nix develop
 ```
 
-## Configuration
-
-The transformation logic is defined in the config.yaml file. Here's an example of how to structure the config.yaml file:
-
-```yaml
-patients:
-  fields:
-    id: "ID"
-    name: "FirstName LastName"
-    phone: "PhoneNumber"
-    age:
-      calculate: "DateOfBirth"
-```
-
-In this example:
-
-    The id field maps to the ID attribute in the XML.
-    The name field combines the FirstName and LastName fields from the XML.
-    The phone field maps directly to the PhoneNumber field in the XML.
-    The dob field is calculated based on the DateOfBirth field in the XML.
-
-Fields:
-
-    String mapping: A field in the configuration file can map directly to an XML element. For example:
-
-fieldName: "XMLElementName"
-
-Complex transformations: For calculations or combinations, you can specify an operation, like calculating age based on the date of birth:
-
-    fieldName:
-      calculate: "DateOfBirth"
-
-## Adding Transformations
-
-Start by creating a new file under the transformations folder, then add your logic into a function. Just make sure they implement the init function.
-
-```go
-func init() {
-	Register("combine", combineFields)
-}
-```
-
 ## Running
-```bash
-go run main.go <config.yaml> <input.xml>
-```
-Running the Program
-Command-Line Usage
+Running the Program: Command-Line Usage
 
 You can run the program from the command line by specifying the paths to the config.yaml and XML input file as arguments:
 
-For example:
-
-go run main.go config.yaml input.xml
+```bash
+go run main.go <config.yaml> <input.xml>
+```
 
 Expected Output
 
@@ -111,10 +65,51 @@ The output will be a JSON object that contains the transformed data. For example
 }
 ```
 
-## Test
+## Testing
 
 ```bash
 go test ./... -v
+```
+
+## Configuration
+
+The transformation logic is defined in the config.yaml file. Here's an example of how to structure the config.yaml file: fieldName: "XMLElementName"
+
+```yaml
+topLevelField: "Patient"
+patients:
+  fields:
+    id: "ID"
+    name: "FirstName LastName"
+    phone: "PhoneNumber"
+    age:
+      calculate: "DateOfBirth"
+```
+
+In this example:
+
+    The id field maps to the ID attribute in the XML.
+    The name field combines the FirstName and LastName fields from the XML.
+    The phone field maps directly to the PhoneNumber field in the XML.
+    The dob field is calculated based on the DateOfBirth field in the XML.
+
+Fields:
+
+    String mapping: A field in the configuration file can map directly to an XML element. For example:
+
+Complex transformations: For calculations or combinations, you can specify an operation, like calculating age based on the date of birth:
+
+    fieldName:
+      calculate: "DateOfBirth"
+
+## Adding Transformations
+
+Start by creating a new file under the transformations folder, then add your logic into a function. Just make sure they implement the init function.
+
+```go
+func init() {
+	Register("combine", combineFields)
+}
 ```
 
 ## Other Considerations
