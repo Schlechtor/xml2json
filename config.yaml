@@ -1,0 +1,20 @@
+topLevelField: "Patient"
+fields:
+  id: "ID"
+  name:
+    combine:
+      - "FirstName"
+      - "LastName"
+  phone: "PhoneNumber"
+  age:
+    calculate: "DateOfBirth"
+  operations:
+    field: "Operations"
+    subfields:
+      test: "Test"
+      other: "Other"
+    newstuff:
+      field: "NewStuff"
+      subfields:
+        more: "More"
+        next: "Next"

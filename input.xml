@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patients>
+  <Patient ID="12345">
+    <FirstName>John</FirstName>
+    <LastName>Doe</LastName>
+    <DateOfBirth>1985-07-15</DateOfBirth>
+    <PhoneNumber>333-456-7890</PhoneNumber>
+    <Operations>
+      <Test>Testing</Test>
+      <Other>other</Other>
+      <NewStuff>
+        <More>Testing</More>
+        <Next>other</Next>
+        <NewStuff2>
+          <More2>Testing</More2>
+          <Next2>other</Next2>
+        </NewStuff2>
+      </NewStuff>
+    </Operations>
+  </Patient>
+  <Patient ID="67890">
+    <FirstName>Jane</FirstName>
+    <LastName>Smith</LastName>
+    <DateOfBirth>1992-03-22</DateOfBirth>
+    <PhoneNumber>123-111-7890</PhoneNumber>
+  </Patient>
+  <Patient ID="11111">
+    <FirstName>John</FirstName>
+    <LastName>Doe</LastName>
+    <DateOfBirth>1992-03-22</DateOfBirth>
+    <PhoneNumber>123-111-7890</PhoneNumber>
+  </Patient>
+</Patients>
